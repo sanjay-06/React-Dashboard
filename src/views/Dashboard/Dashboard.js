@@ -83,7 +83,6 @@ export default function Dashboard() {
               <h3 className={classes.cardTitle}>18263</h3>
             </CardHeader>
             <CardFooter stats>
-           
             </CardFooter>
           </Card>
         </GridItem>
@@ -115,12 +114,12 @@ export default function Dashboard() {
       
       <GridItem xs={12}>
           <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
+          <CardHeader color="primary">
+          <CardIcon color="success">
                 <Icon>hourglass_top</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Total Number of Working Hours</p>
-            </CardHeader>
+          </CardIcon>
+        <h4 className={classes.cardTitleWhite}>Total Number of Working Hours</h4>
+      </CardHeader>
             <br />
             <Chart />
             <CardFooter stats>
