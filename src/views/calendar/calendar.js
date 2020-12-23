@@ -32,7 +32,7 @@ export default function calendar()
                     'end': new Date(2020, 11, 10, 12, 0), // 2.00 PM 
                 },
                 {
-                    'title': 'Stephen Woods',
+                    'title': 'Stephen Wood',
                     'allDay': false,
                     'start': new Date(2020, 11, 15, 10, 0), // 10.00 AM
                     'end': new Date(2020, 11, 15, 12, 0), // 2.00 PM 
