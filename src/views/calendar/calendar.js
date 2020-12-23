@@ -1,56 +1,61 @@
 import React from 'react';
-import { Calendar} from 'react-big-calendar';
+import { Calendar,momentLocalizer} from 'react-big-calendar';
 import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+const localizer = momentLocalizer(moment)
+export default function calendar() 
+{
+       return  (
+        <div style={{ height: 700 }}>
+            <Calendar
+ 
+            style={{ height: 700 }}
 
-export default function calendar() {
+            localizer={localizer}
 
-        const holidaysList = []
-        holidaysList.push({id:2,occasion:"Abbc",is_restricted:"false",for_date:"2019-11-22",color: "#ff0000" })
-        const absentiesList = []
-        absentiesList.push({id:2,username:"dhruvil",start_at: "Tue Nov 19 05:30:00 GMT+0503(India standard Time){}", end_at: "Tue Nov 19 05:30:00 GMT+0503(India standard Time){}",is_sandwich:"false",color:"fff600"})
-        const holidays = []
+            startAccessor="start"
 
-       holidaysList.forEach((holiday) => {
+            endAccessor="end"
 
-           let start = moment(holiday.for_date).toDate()
-
-           holidays.push({ id: holiday.id, title: holiday.occasion, start: start, end: start, color: holiday.color, resource: holiday.is_restricted, type: 'holiday', allDay: 'true' })
-       })
-
-       const leaves = []
-
-       absentiesList.forEach((leave) => {
-
-           let start_at = (new Date(leave.start_at))
-
-           let end_at = (new Date(leave.end_at))
-
-           leaves.push({ id: leave.id, title: leave.username, start: start_at, end: end_at, color: leave.color, type: 'leave', allDay: 'true' })
-
-       })
-
-       const list = [...holidays, ...leaves]
-       return (
-        <Calendar
-
-        events={list}
-
-        startAccessor="start"
-
-        endAccessor="end"
-
-        defaultDate={moment().toDate()}
-
-        eventPropGetter={event => {
-
-            const eventData = list.find(ot => ot.id === event.id);
-
-            const backgroundColor = eventData && eventData.color;
-
-            return { style: { backgroundColor } };
-
-        }}
-
-    />
-    )
+            defaultDate={moment().toDate()}
+            events={[
+                {
+                  'title': 'Alec Thompson',
+                  'allDay': true,
+                  'start': new Date(2020, 11, 12, 10, 0), // 10.00 AM
+                  'end': new Date(2020, 11, 12, 12, 0), // 2.00 PM
+                },
+                {
+                    'title': 'Carry wood',
+                    'allDay': true,
+                    'start': new Date(2020, 11, 10, 10, 0), // 10.00 AM
+                    'end': new Date(2020, 11, 10, 12, 0), // 2.00 PM 
+                },
+                {
+                    'title': 'Stephen Woods',
+                    'allDay': false,
+                    'start': new Date(2020, 11, 15, 10, 0), // 10.00 AM
+                    'end': new Date(2020, 11, 15, 12, 0), // 2.00 PM 
+                },
+                {
+                    'title': 'Roger fed',
+                    'allDay': false,
+                    'start': new Date(2020, 11, 10, 10, 0), // 10.00 AM
+                    'end': new Date(2020, 11, 10, 12, 0), // 2.00 PM 
+                },
+                {
+                    'title': 'Roger',
+                    'allDay': false,
+                    'start': new Date(2020, 10, 10, 10, 0), // 10.00 AM
+                    'end': new Date(2020, 10, 10, 12, 0), // 2.00 PM 
+                }
+              ]}
+              step={60}
+              min={new Date(2020, 0, 1, 8, 0)} // 8.00 AM
+              max={new Date(2020, 0, 1, 18, 0)} // Max will be 6.00 PM!
+              startAccessor="start"
+              endAccessor="end"
+            />
+        </div>
+        )
 }

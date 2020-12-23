@@ -45,13 +45,20 @@ const styles = {
 };
 
 const useStyles = makeStyles(styles);
-
+const initialFormData = Object.freeze({
+  date:"",
+  hours: "",
+  days: "",
+  reason:""
+});
 export default function TableList() {
   const classes = useStyles();
   const [show, setShow] = useState(false);
   const [tc, setTC] = useState(false);
+  const [tr, setTR] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [formData, updateFormData] = useState(initialFormData);
   const showNotification = place => {
     switch (place) {
       case "tc":
@@ -62,8 +69,42 @@ export default function TableList() {
           }, 6000);
         }
         break;
+        case "tr":
+          if (!tr) {
+            setTR(true);
+            setTimeout(function() {
+              setTR(false);
+            }, 6000);
+          }
+          break;
   }
  }
+ const handleChange = (e) => {
+  updateFormData({
+    ...formData,
+    [e.target.name]: e.target.value.trim()
+  });
+};
+const handleSubmit = (e) => {
+  e.preventDefault()
+  console.log(formData.hours);
+   let value1=formData.hours
+   let value2=formData.days
+   if(value1 == 0 && value2 == 0 )
+   {
+     showNotification("tr");
+   }
+   else if(value1 != 0 && value2 != 0 )
+   {
+     showNotification("tr");
+   }
+   else
+   {
+     showNotification("tc");
+     handleClose();
+   }
+}
+
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
@@ -103,11 +144,11 @@ export default function TableList() {
         <Form>
   <Form.Group controlId="exampleForm.ControlInput1">
     <Form.Label>Select the Date</Form.Label>
-    <Form.Control type="date" placeholder="Date" />
+    <Form.Control type="date"  name="date" onChange={handleChange}/>
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1">
     <Form.Label>Number of days</Form.Label>
-    <Form.Control as="select">
+    <Form.Control as="select" name="days" onChange={handleChange}>
       <option>0</option>
       <option>1</option>
       <option>2</option>
@@ -118,7 +159,7 @@ export default function TableList() {
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect2">
     <Form.Label>Permission Hours</Form.Label>
-    <Form.Control as="select">
+    <Form.Control as="select" name="hours" onChange={handleChange}>
       <option>0</option>
       <option>1</option>
       <option>2</option>
@@ -127,9 +168,9 @@ export default function TableList() {
       <option>5</option>
     </Form.Control>
   </Form.Group>
-  <Form.Group controlId="exampleForm.ControlTextarea1">
+  <Form.Group controlId="exampleForm.ControlTextarea1" aria-required>
     <Form.Label>Reason for leave</Form.Label>
-    <Form.Control as="textarea" rows={3} />
+    <Form.Control as="textarea" rows={3} name="reason" onChange={handleChange}/>
   </Form.Group>
 </Form>
         </Modal.Body>
@@ -137,12 +178,8 @@ export default function TableList() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary"
-          color="primary"
-          onClick={() => {
-            handleClose()
-            showNotification("tc")
-          }}>Apply</Button>
+          <Button color="primary"
+          onClick={handleSubmit}>Apply</Button>
         </Modal.Footer>
       </Modal>
           </CardBody>
@@ -154,6 +191,15 @@ export default function TableList() {
                   message="Leave Applied successfully"
                   open={tc}
                   closeNotification={() => setTC(false)}
+                  close
+                />
+         <Snackbar
+                  place="tr"
+                  color="danger"
+                  icon={AddAlert}
+                  message="Alert! Leave Not Applied"
+                  open={tr}
+                  closeNotification={() => setTR(false)}
                   close
                 />
       </GridItem>

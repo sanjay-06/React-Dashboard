@@ -1,12 +1,7 @@
 import React from "react";
-// react plugin for creating charts
-import ChartistGraph from "react-chartist";
-// @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
 import Accessibility from "@material-ui/icons/Accessibility";
-// core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Card from "components/Card/Card.js";
@@ -111,7 +106,6 @@ export default function Dashboard() {
           </Card>
         </GridItem>
       </GridContainer>
-      
       <GridItem xs={12}>
           <Card>
           <CardHeader color="primary">
@@ -120,7 +114,7 @@ export default function Dashboard() {
           </CardIcon>
         <h4 className={classes.cardTitleWhite}>Total Number of Working Hours</h4>
       </CardHeader>
-            <br />
+      <br />
             <Chart />
             <CardFooter stats>
            
