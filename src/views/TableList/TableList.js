@@ -77,6 +77,8 @@ export default function TableList() {
             }, 6000);
           }
           break;
+        default:
+          break;
   }
  }
  const handleChange = (e) => {
@@ -90,11 +92,11 @@ const handleSubmit = (e) => {
   console.log(formData.hours);
    let value1=formData.hours
    let value2=formData.days
-   if(value1 == 0 && value2 == 0 )
+   if(value1 === 0 && value2 === 0 )
    {
      showNotification("tr");
    }
-   else if(value1 != 0 && value2 != 0 )
+   else if(value1 !== 0 && value2 !== 0 )
    {
      showNotification("tr");
    }

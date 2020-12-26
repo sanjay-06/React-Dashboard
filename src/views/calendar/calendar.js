@@ -53,8 +53,6 @@ export default function calendar()
               step={60}
               min={new Date(2020, 0, 1, 8, 0)} // 8.00 AM
               max={new Date(2020, 0, 1, 18, 0)} // Max will be 6.00 PM!
-              startAccessor="start"
-              endAccessor="end"
             />
         </div>
         )

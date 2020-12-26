@@ -115,7 +115,7 @@ export default function Dashboard() {
         <h4 className={classes.cardTitleWhite}>Total Number of Working Hours</h4>
       </CardHeader>
       <br />
-            <Chart />
+            <Chart className=".d-none .d-sm-block"/>
             <CardFooter stats>
            
             </CardFooter>
