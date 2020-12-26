@@ -14,9 +14,9 @@ import Divider from "@material-ui/core/Divider";
 import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
-import Button from "components/CustomButtons/Button.js";
+import Button from "../../components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import styles from "../../assets/jss/material-dashboard-react/components/headerLinksStyle";
 
 const useStyles = makeStyles(styles);
 

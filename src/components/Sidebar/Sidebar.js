@@ -9,9 +9,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
-import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
-import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
-import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
+import AdminNavbarLinks from "../Navbars/AdminNavbarLinks";
+import RTLNavbarLinks from "../Navbars/RTLNavbarLinks";
+import styles from "../../assets/jss/material-dashboard-react/components/sidebarStyle";
 
 const useStyles = makeStyles(styles);
 

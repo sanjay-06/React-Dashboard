@@ -21,9 +21,8 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 // core components
-import Admin from "layouts/Admin.js";
-
-import "assets/css/material-dashboard-react.css?v=1.9.0";
+import Admin from "./layouts/Admin";
+import "./assets/css/material-dashboard-react.css?v=1.9.0";
 
 const hist = createBrowserHistory();
 

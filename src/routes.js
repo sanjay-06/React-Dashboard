@@ -1,11 +1,11 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import DashboardPage from "views/Dashboard/Dashboard.js";
-import UserProfile from "views/UserProfile/UserProfile.js";
-import TableList from "views/TableList/TableList.js";
-import Typography from "views/Typography/Typography.js";
-import Icons from "views/calendar/calendar";
-import NotificationsPage from "views/Notifications/Notifications.js";
+import DashboardPage from "./views/Dashboard/Dashboard";
+import UserProfile from "./views/UserProfile/UserProfile";
+import TableList from "./views/TableList/TableList";
+import Typography from "./views/Typography/Typography";
+import Icons from "./views/calendar/calendar";
+import NotificationsPage from "./views/Notifications/Notifications";
 
 const dashboardRoutes = [
   {

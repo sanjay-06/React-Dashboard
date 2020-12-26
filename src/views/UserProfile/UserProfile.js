@@ -1,13 +1,13 @@
 import React from "react";
 // @material-ui/core components
 import {withStyles, makeStyles } from "@material-ui/core/styles";
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
-import CardAvatar from "components/Card/CardAvatar.js";
-import CardBody from "components/Card/CardBody.js";
-import avatar from "assets/img/faces/marc.jpg";
+import GridItem from "../../components/Grid/GridItem";
+import GridContainer from "../../components/Grid/GridContainer";
+import Button from "../../components/CustomButtons/Button";
+import Card from "../../components/Card/Card";
+import CardAvatar from "../../components/Card/CardAvatar";
+import CardBody from "../../components/Card/CardBody";
+import avatar from "../../assets/img/faces/marc.jpg";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';

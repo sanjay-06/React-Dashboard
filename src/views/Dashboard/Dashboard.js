@@ -2,18 +2,18 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import Accessibility from "@material-ui/icons/Accessibility";
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardIcon from "components/Card/CardIcon.js"
-import CardFooter from "components/Card/CardFooter.js";
+import GridItem from "../../components/Grid/GridItem";
+import GridContainer from "../../components/Grid/GridContainer";
+import Card from "../../components/Card/Card.js";
+import CardHeader from "../../components/Card/CardHeader";
+import CardIcon from "../../components/Card/CardIcon"
+import CardFooter from "../../components/Card/CardFooter";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import {ButtonGroup} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Chart from '../../variables/charts'
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle";
 
 const useStyles = makeStyles(styles);
 
