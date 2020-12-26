@@ -2,17 +2,17 @@ import React,{ useState }  from "react"
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
-import Button from "components/CustomButtons/Button.js";
+import GridItem from "../../components/Grid/GridItem";
+import GridContainer from "../../components/Grid/GridContainer";
+import Table from "../../components/Table/Table";
+import Card from "../../components/Card/Card";
+import CardHeader from "../../components/Card/CardHeader";
+import CardBody from "../../components/Card/CardBody";
+import Button from "../../components/CustomButtons/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form"
 import AddAlert from "@material-ui/icons/AddAlert";
-import Snackbar from "components/Snackbar/Snackbar.js";
+import Snackbar from "../../components/Snackbar/Snackbar";
 
 const styles = {
   cardCategoryWhite: {
@@ -76,8 +76,6 @@ export default function TableList() {
               setTR(false);
             }, 6000);
           }
-          break;
-        default:
           break;
   }
  }
