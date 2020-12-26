@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/React-Dashboard/static/css/main.8e9f8467.chunk.css",
+    "main.js": "/React-Dashboard/static/js/main.9ef9a984.chunk.js",
+    "main.js.map": "/React-Dashboard/static/js/main.9ef9a984.chunk.js.map",
+    "runtime-main.js": "/React-Dashboard/static/js/runtime-main.f340d582.js",
+    "runtime-main.js.map": "/React-Dashboard/static/js/runtime-main.f340d582.js.map",
+    "static/css/2.b47d4936.chunk.css": "/React-Dashboard/static/css/2.b47d4936.chunk.css",
+    "static/js/2.ecc05eaf.chunk.js": "/React-Dashboard/static/js/2.ecc05eaf.chunk.js",
+    "static/js/2.ecc05eaf.chunk.js.map": "/React-Dashboard/static/js/2.ecc05eaf.chunk.js.map",
+    "index.html": "/React-Dashboard/index.html",
+    "precache-manifest.63e268a5c41a84a745e26f579723b953.js": "/React-Dashboard/precache-manifest.63e268a5c41a84a745e26f579723b953.js",
+    "service-worker.js": "/React-Dashboard/service-worker.js",
+    "static/css/2.b47d4936.chunk.css.map": "/React-Dashboard/static/css/2.b47d4936.chunk.css.map",
+    "static/css/main.8e9f8467.chunk.css.map": "/React-Dashboard/static/css/main.8e9f8467.chunk.css.map",
+    "static/js/2.ecc05eaf.chunk.js.LICENSE.txt": "/React-Dashboard/static/js/2.ecc05eaf.chunk.js.LICENSE.txt",
+    "static/js/main.9ef9a984.chunk.js.LICENSE.txt": "/React-Dashboard/static/js/main.9ef9a984.chunk.js.LICENSE.txt",
+    "static/media/marc.jpg": "/React-Dashboard/static/media/marc.8880a65c.jpg",
+    "static/media/sidebar-2.jpg": "/React-Dashboard/static/media/sidebar-2.526a4d97.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f340d582.js",
+    "static/css/2.b47d4936.chunk.css",
+    "static/js/2.ecc05eaf.chunk.js",
+    "static/css/main.8e9f8467.chunk.css",
+    "static/js/main.9ef9a984.chunk.js"
+  ]
+}
