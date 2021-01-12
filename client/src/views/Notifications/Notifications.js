@@ -127,8 +127,33 @@ const handleSubmit = (e) => {
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
+          <CardHeader color="info">
+            <h4 className={classes.cardTitleWhite}>Add Item Section</h4>
+            <p className={classes.cardCategoryWhite}>
+              Form section
+            </p>
+          </CardHeader>
+          <CardBody><center>
+          <Button color="info" onClick={handleShow}> 
+                Check company
+              </Button>&emsp;&emsp;&emsp;
+          <Button color="info" onClick={handleShow}> 
+                Add Item
+              </Button>&emsp;&emsp;&emsp;
+              <Button color="info" onClick={handleShow}> 
+                Add Other Item
+              </Button>&emsp;&emsp;&emsp;
+              <Button color="info" onClick={handleShow}> 
+                Check last Row
+              </Button>
+            </center>
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Sales Table</h4>
+            <h4 className={classes.cardTitleWhite}>Sales Table 1</h4>
             <p className={classes.cardCategoryWhite}>
               sales report
             </p>
@@ -137,34 +162,33 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Email Time</th>
-                <th>Client Email</th>
-                <th>Item</th>
-                <th>Model</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Month</th>
-                <th>Client</th>
+                <th>Common S.no</th>
+                <th>Common Enquiry/PO Unique ID</th>
+                <th>Common Total Items</th>
+                <th>Common Item No</th>
+                <th>Sales Select Company</th>
+                <th>Sales Email Receipt Time</th>
+                <th>Sales Client Email</th>
+                <th>Common Item Description</th>
+                <th>Common Specs/Model No</th>
               </tr>
             </thead>
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
-                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.unit}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
                 <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.quantity}</td>
-                <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.month}</td>
                 <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.unit}</td>
               </tr>
             </tbody>
             ))}
              </Table>
-              <center><Button color="primary" onClick={handleShow}> 
-                Add Item
-              </Button></center>
               <Modal
         show={show}
         onHide={handleClose}
@@ -203,12 +227,22 @@ const handleSubmit = (e) => {
   <Form.Group controlId="exampleForm.ControlSelect1" style={{width:"100%"}}>
     <Form.Label>Unit</Form.Label>
     <Form.Control as="select" name="unit" onChange={handleChange}>
-      <option>0</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option>Nos.</option>
+      <option>Pcs.</option>
+      <option>Pkts.</option>
+      <option>Mtrs.</option>
+      <option>Rolls</option>
+      <option>Kg</option>
+      <option>Set</option>
+      <option>Bottle</option>
+      <option>Box</option>
+      <option>Litres</option>
+      <option>Feet</option>
+      <option>Sheet</option>
+      <option>Bundle</option>
+      <option>Pair</option>
+      <option>Can</option>
+      <option>Pack</option>
     </Form.Control>
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
@@ -249,6 +283,202 @@ const handleSubmit = (e) => {
                   closeNotification={() => setTR(false)}
                   close
                 />
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Sales Table 2</h4>
+            <p className={classes.cardCategoryWhite}>
+              sales report
+            </p>
+          </CardHeader>
+          <CardBody>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Common Brand</th>
+                <th>Common Qty Required</th>
+                <th>sales Client RFQ no.</th>
+                <th>Sales Email Status</th>
+                <th>Sales Quote/Regret Date</th>
+                <th>Sales Enquiry Regret</th>
+                <th>Sales Status</th>
+                <th>MODE of sales PO without ENQUIRY</th>
+              </tr>
+            </thead>
+          {users.map(value => (
+            <tbody>
+              <tr id={value._id}>
+                <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
+                <td id={value._id}>{value.model}</td>
+                <td id={value._id}>{value.quantity}</td>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+              </tr>
+            </tbody>
+            ))}
+             </Table>
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Sales Table 3</h4>
+            <p className={classes.cardCategoryWhite}>
+              sales report
+            </p>
+          </CardHeader>
+          <CardBody>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>AUTHORIZED BY Sales PO without ENQUIRY</th>
+                <th>STATUS FORMAL Sales PO RECIEVED</th>
+                <th>Sales FORMAL PO Number</th>
+                <th>Sales FORMAL PO Issue Date</th>
+                <th>Sales Material Delivery Due Date on PO</th>
+                <th>Sales Material Despatch/Billing Date</th>
+                <th>Quotation MANUL Purchase Type</th>
+                <th>Quotation MANUAL Rates</th>
+              </tr>
+            </thead>
+          {users.map(value => (
+            <tbody>
+              <tr id={value._id}>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
+                <td id={value._id}>{value.model}</td>
+                <td id={value._id}>{value.quantity}</td>
+                <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+              </tr>
+            </tbody>
+            ))}
+             </Table>
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Sales Table 4</h4>
+            <p className={classes.cardCategoryWhite}>
+              sales report
+            </p>
+          </CardHeader>
+          <CardBody>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Quotation MANUAL Discount</th>
+                <th>Quotation MANUAL GST</th>
+                <th>Quotation MANUAL STOCK Status</th>
+                <th>Sales Payment CREDIT No. of Days</th>
+                <th>Purchase Rate Status OR Not Available/Regret Reason</th>
+                <th>Sales Status Check</th>
+                <th>MODE of Sales PO without ENQUIRY</th>
+                <th>AUTHORIZED BY Sales PO without ENQUIRY</th>
+                <th>STATUS FORMAL Sales PO RECIEVED</th>
+              </tr>
+            </thead>
+          {users.map(value => (
+            <tbody>
+              <tr id={value._id}>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
+                <td id={value._id}>{value.model}</td>
+                <td id={value._id}>{value.quantity}</td>
+                <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.model}</td>
+              </tr>
+            </tbody>
+            ))}
+             </Table>
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Sales Table 5</h4>
+            <p className={classes.cardCategoryWhite}>
+              sales report
+            </p>
+          </CardHeader>
+          <CardBody>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Sales FORMAL PO Number</th>
+                <th>Sales FORMAL PO Issue Date</th>
+                <th>Sales Material Delivery Due Date on PO</th>
+                <th>Sales Material Despatch/Billing Date</th>
+                <th>Quotation MANUAL Purchase Type</th>
+                <th>Quotation MANUAL Rates</th>
+                <th>Quotation MANUAL Discount</th>
+                <th>Quotation MANUAL GST</th>
+                <th>Quotation MANUAL stock status</th>
+              </tr>
+            </thead>
+          {users.map(value => (
+            <tbody>
+              <tr id={value._id}>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
+                <td id={value._id}>{value.model}</td>
+                <td id={value._id}>{value.quantity}</td>
+                <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.model}</td>
+              </tr>
+            </tbody>
+            ))}
+             </Table>
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Sales Table 6</h4>
+            <p className={classes.cardCategoryWhite}>
+              sales report
+            </p>
+          </CardHeader>
+          <CardBody>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Sales Payment CREDIT No. of Days</th>
+                <th>Purchase Rates Status OR Not Available/Regret Reason</th>
+                <th>Sales FORMAL PO Status Check</th>
+                <th>Sales Regret No. of items from Total items</th>
+              </tr>
+            </thead>
+          {users.map(value => (
+            <tbody>
+              <tr id={value._id}>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
+                <td id={value._id}>{value.model}</td>
+              </tr>
+            </tbody>
+            ))}
+             </Table>
+          </CardBody>
+        </Card>
       </GridItem>
     </GridContainer>
   );
