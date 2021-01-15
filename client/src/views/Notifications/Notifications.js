@@ -22,7 +22,7 @@ const styles = {
       marginTop: "0",
       marginBottom: "0"
     },
-    "& a,& a:hover,& a:focus": {
+    "& a,& a:hover,& a:focus": { 
       color: "#FFFFFF"
     }
   },
@@ -64,6 +64,7 @@ export default function TableList() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [formData, updateFormData] = useState(initialFormData);
+  handleshow ()
   const showNotification = place => {
     switch (place) {
       case "tc":
@@ -140,7 +141,7 @@ const handleSubmit = (e) => {
           <Button color="info" onClick={handleShow}> 
                 Add Item
               </Button>&emsp;&emsp;&emsp;
-              <Button color="info" onClick={handleShow}> 
+              <Button color="info" onClick={handleShow1}> 
                 Add Other Item
               </Button>&emsp;&emsp;&emsp;
               <Button color="info" onClick={handleShow}> 
@@ -170,7 +171,7 @@ const handleSubmit = (e) => {
                 <th>Sales Email Receipt Time</th>
                 <th>Sales Client Email</th>
                 <th>Common Item Description</th>
-                <th>Common Specs/Model No</th>
+                
               </tr>
             </thead>
           {users.map(value => (
@@ -184,12 +185,26 @@ const handleSubmit = (e) => {
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.month}</td>
                 <td id={value._id}>{value.client}</td>
-                <td id={value._id}>{value.unit}</td>
+                
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+             <tbody>
+            <tr>
+                <td name="Common S.no"><Form.Control type="text"/></td>
+                <td name="Common Enquiry/PO Unique ID"><Form.Control type="text"/></td>
+                <td name="Common Total Items"><Form.Control type="text" /></td>
+                <td name="Common Item No"><Form.Control type="text" /></td>
+                <td name="Sales Select Company"><Form.Control type="text"/></td>
+                <td name="Sales Email Receipt Time"><Form.Control type="time" /></td>
+                <td name="Sales Client Email"><Form.Control type="text" /></td>
+                <td name="Common Item Description"><Form.Control type="text"/></td>
+                <td name="table1add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
-              <Modal
+             <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -199,61 +214,61 @@ const handleSubmit = (e) => {
           <Modal.Title>Add Item from New Email</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-                <Form>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Email Time</Form.Label>
-    <Form.Control type="Time"  name="emailtime" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Client Email ID</Form.Label>
-    <Form.Control type="email"  name="clientemail" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Item Description</Form.Label>
-    <Form.Control type="text"  name="itemdescription" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Model</Form.Label>
-    <Form.Control type="text"  name="model" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Brand</Form.Label>
-    <Form.Control type="text"  name="brand" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Quantity</Form.Label>
-    <Form.Control type="text"  name="quantity" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect1" style={{width:"100%"}}>
-    <Form.Label>Unit</Form.Label>
-    <Form.Control as="select" name="unit" onChange={handleChange}>
-      <option>Nos.</option>
-      <option>Pcs.</option>
-      <option>Pkts.</option>
-      <option>Mtrs.</option>
-      <option>Rolls</option>
-      <option>Kg</option>
-      <option>Set</option>
-      <option>Bottle</option>
-      <option>Box</option>
-      <option>Litres</option>
-      <option>Feet</option>
-      <option>Sheet</option>
-      <option>Bundle</option>
-      <option>Pair</option>
-      <option>Can</option>
-      <option>Pack</option>
-    </Form.Control>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Month:</Form.Label>
-    <Form.Control type="text"  name="month" onChange={handleChange}/>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
-    <Form.Label>Client's RFQ No.:</Form.Label>
-    <Form.Control type="text"  name="clientrfq" onChange={handleChange}/>
-  </Form.Group>
-</Form>
+            <Form>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Email Time</Form.Label>
+                <Form.Control type="Time"  name="emailtime" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Client Email ID</Form.Label>
+                <Form.Control type="email"  name="clientemail" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Item Description</Form.Label>
+                <Form.Control type="text"  name="itemdescription" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Model</Form.Label>
+                <Form.Control type="text"  name="model" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Brand</Form.Label>
+                <Form.Control type="text"  name="brand" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control type="text"  name="quantity" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlSelect1" style={{width:"100%"}}>
+                <Form.Label>Unit</Form.Label>
+                <Form.Control as="select" name="unit" onChange={handleChange}>
+                  <option>Nos.</option>
+                  <option>Pcs.</option>
+                  <option>Pkts.</option>
+                  <option>Mtrs.</option>
+                  <option>Rolls</option>
+                  <option>Kg</option>
+                  <option>Set</option>
+                  <option>Bottle</option>
+                  <option>Box</option>
+                  <option>Litres</option>
+                  <option>Feet</option>
+                  <option>Sheet</option>
+                  <option>Bundle</option>
+                  <option>Pair</option>
+                  <option>Can</option>
+                  <option>Pack</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Month:</Form.Label>
+                <Form.Control type="text"  name="month" onChange={handleChange}/>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1" style={{width:"100%"}}>
+                <Form.Label>Client's RFQ No.:</Form.Label>
+                <Form.Control type="text"  name="clientrfq" onChange={handleChange}/>
+              </Form.Group>
+            </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -262,7 +277,7 @@ const handleSubmit = (e) => {
           <Button color="primary"
           onClick={handleSubmit}>Add Item</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal>  
           </CardBody>
         </Card>
         <Snackbar
@@ -296,6 +311,7 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Common Specs/Model No</th>
                 <th>Common Brand</th>
                 <th>Common Qty Required</th>
                 <th>sales Client RFQ no.</th>
@@ -303,12 +319,13 @@ const handleSubmit = (e) => {
                 <th>Sales Quote/Regret Date</th>
                 <th>Sales Enquiry Regret</th>
                 <th>Sales Status</th>
-                <th>MODE of sales PO without ENQUIRY</th>
+               
               </tr>
             </thead>
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
+                <td id={value._id}>{value.unit}</td>
                 <td id={value._id}>{value.unit}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
@@ -316,10 +333,25 @@ const handleSubmit = (e) => {
                 <td id={value._id}>{value.quantity}</td>
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.month}</td>
-                <td id={value._id}>{value.client}</td>
+               
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+            <tbody>
+            <tr>
+                <td name="Common Specs/Model No"><Form.Control type="text"/></td>
+                <td name="table2data1"><Form.Control type="text"/></td>
+                <td name="Common Qty Required"><Form.Control type="text"/></td>
+                <td name="sales Client RFQ no."><Form.Control type="text" /></td>
+                <td name="Sales Email Status"><Form.Control type="text" /></td>
+                <td name="Sales Quote/Regret Date"><Form.Control type="date"/></td>
+                <td name="Sales Enquiry Regret"><Form.Control type="text" /></td>
+                <td name="Sales Status"><Form.Control type="text" /></td>
+               
+                <td name="table2add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
           </CardBody>
         </Card>
@@ -336,30 +368,47 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>MODE of sales PO without ENQUIRY</th>
                 <th>AUTHORIZED BY Sales PO without ENQUIRY</th>
                 <th>STATUS FORMAL Sales PO RECIEVED</th>
                 <th>Sales FORMAL PO Number</th>
                 <th>Sales FORMAL PO Issue Date</th>
                 <th>Sales Material Delivery Due Date on PO</th>
                 <th>Sales Material Despatch/Billing Date</th>
-                <th>Quotation MANUL Purchase Type</th>
-                <th>Quotation MANUAL Rates</th>
+               
+                
               </tr>
             </thead>
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
+                <td id={value._id}>{value.client}</td>
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
                 <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.quantity}</td>
                 <td id={value._id}>{value.unit}</td>
-                <td id={value._id}>{value.month}</td>
-                <td id={value._id}>{value.client}</td>
+              
+               
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+             <tbody>
+            <tr>
+                <td name="MODE of sales PO without ENQUIRY"><Form.Control type="text"/></td>
+                <td name="AUTHORIZED BY Sales PO without ENQUIRY"><Form.Control type="text"/></td>
+                <td name="STATUS FORMAL Sales PO RECIEVED"><Form.Control type="text"/></td>
+                <td name="Sales FORMAL PO Number"><Form.Control type="text" /></td>
+                <td name="Sales FORMAL PO Issue Date"><Form.Control type="date" /></td>
+                <td name="Sales Material Delivery Due Date on PO"><Form.Control type="date"/></td>
+                <td name="Sales Material Despatch/Billing Date"><Form.Control type="date" /></td>
+             
+              
+                <td name="table3add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
           </CardBody>
         </Card>
@@ -376,32 +425,47 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Quotation MANUAL Rates</th>
+                <th>Quotation MANUL Purchase Type</th>
                 <th>Quotation MANUAL Discount</th>
                 <th>Quotation MANUAL GST</th>
                 <th>Quotation MANUAL STOCK Status</th>
                 <th>Sales Payment CREDIT No. of Days</th>
                 <th>Purchase Rate Status OR Not Available/Regret Reason</th>
                 <th>Sales Status Check</th>
-                <th>MODE of Sales PO without ENQUIRY</th>
-                <th>AUTHORIZED BY Sales PO without ENQUIRY</th>
-                <th>STATUS FORMAL Sales PO RECIEVED</th>
+              
               </tr>
             </thead>
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
+                <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.month}</td>
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
                 <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.quantity}</td>
                 <td id={value._id}>{value.unit}</td>
-                <td id={value._id}>{value.month}</td>
-                <td id={value._id}>{value.client}</td>
-                <td id={value._id}>{value.model}</td>
+              
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+             <tbody>
+            <tr>
+                <td name="Quotation MANUAL Rates"><Form.Control type="text"/></td>
+                <td name="Quotation MANUL Purchase Type"><Form.Control type="text" /></td>
+                <td name="Quotation MANUAL Discount"><Form.Control type="text"/></td>
+                <td name="Quotation MANUAL GST"><Form.Control type="text"/></td>
+                <td name="Quotation MANUAL STOCK Status"><Form.Control type="text" /></td>
+                <td name="Sales Payment CREDIT No. of Days"><Form.Control type="text" /></td>
+                <td name="Purchase Rate Status OR Not Available/Regret Reason"><Form.Control type="date"/></td>
+                <td name="Sales Status Check"><Form.Control type="text" /></td>
+              
+                <td name="table4add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
           </CardBody>
         </Card>
@@ -418,32 +482,47 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>MODE of Sales PO without ENQUIRY</th>
+                <th>AUTHORIZED BY Sales PO without ENQUIRY</th>
+                <th>STATUS FORMAL Sales PO RECIEVED</th>
                 <th>Sales FORMAL PO Number</th>
                 <th>Sales FORMAL PO Issue Date</th>
                 <th>Sales Material Delivery Due Date on PO</th>
                 <th>Sales Material Despatch/Billing Date</th>
                 <th>Quotation MANUAL Purchase Type</th>
-                <th>Quotation MANUAL Rates</th>
-                <th>Quotation MANUAL Discount</th>
-                <th>Quotation MANUAL GST</th>
-                <th>Quotation MANUAL stock status</th>
+               
               </tr>
             </thead>
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
                 <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.quantity}</td>
-                <td id={value._id}>{value.unit}</td>
-                <td id={value._id}>{value.month}</td>
-                <td id={value._id}>{value.client}</td>
-                <td id={value._id}>{value.model}</td>
+              
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+             <tbody>
+            <tr>
+                <td name="MODE of Sales PO without ENQUIRY"><Form.Control type="text" /></td>
+                <td name="AUTHORIZED BY Sales PO without ENQUIRY"><Form.Control type="text"/></td>
+                <td name="STATUS FORMAL Sales PO RECIEVED"><Form.Control type="text"/></td>
+                <td name="Sales FORMAL PO Number"><Form.Control type="text"/></td>
+                <td name="Sales FORMAL PO Issue Date"><Form.Control type="text"/></td>
+                <td name="Sales Material Delivery Due Date on PO"><Form.Control type="text" /></td>
+                <td name="Sales Material Despatch/Billing Date"><Form.Control type="text" /></td>
+                <td name="Quotation MANUAL Purchase Type"><Form.Control type="date"/></td>
+               
+                <td name="table3add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
           </CardBody>
         </Card>
@@ -460,6 +539,10 @@ const handleSubmit = (e) => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>Quotation MANUAL Rates</th>
+                <th>Quotation MANUAL Discount</th>
+                <th>Quotation MANUAL GST</th>
+                <th>Quotation MANUAL stock status</th>
                 <th>Sales Payment CREDIT No. of Days</th>
                 <th>Purchase Rates Status OR Not Available/Regret Reason</th>
                 <th>Sales FORMAL PO Status Check</th>
@@ -469,13 +552,31 @@ const handleSubmit = (e) => {
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
+              <td id={value._id}>{value.unit}</td>
+                <td id={value._id}>{value.month}</td>
+                <td id={value._id}>{value.client}</td>
+                <td id={value._id}>{value.model}</td>
                 <td id={value._id}>{value.emailtime}</td>
                 <td id={value._id}>{value.clientemail}</td>
                 <td id={value._id}>{value.item}</td>
                 <td id={value._id}>{value.model}</td>
+                <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
             </tbody>
             ))}
+             <tbody>
+            <tr>
+                <td name="Quotation MANUAL Rates"><Form.Control type="text" /></td>
+                <td name="Quotation MANUAL Discount"><Form.Control type="text" /></td>
+                <td name="Quotation MANUAL GST"><Form.Control type="text"/></td>
+                <td name="Quotation MANUAL stock status"><Form.Control type="text"/></td>
+                <td name="Sales Payment CREDIT No. of Days"><Form.Control type="text"/></td>
+                <td name="Purchase Rates Status"><Form.Control type="text"/></td>
+                <td name="Sales FORMAL PO Status Check"><Form.Control type="text" /></td>
+                <td name="Sales Regret No. of items from Total items"><Form.Control type="text" /></td>
+                <td name="table6add"><Button color="success" type="submit">Add</Button></td>
+              </tr>
+              </tbody>
              </Table>
           </CardBody>
         </Card>
