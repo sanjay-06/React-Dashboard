@@ -47,6 +47,7 @@ export default function AdminNavbarLinks() {
     setOpenProfile(null);
     auth.logout(()=>{
       Cookies.remove('name');
+      Cookies.remove('clientemail')
       history.push("/");
     })
   };
