@@ -139,11 +139,6 @@ export default function TableList() {
     ...formData,
     [e.target.name]: e.target.value.trim()
   });
-  Cookies.set("emailtime",formData.emailtime)
-  Cookies.set("clientemail",formData.clientemail)
-  Cookies.set("clientrfq",formData.clientrfq)
-  console.log(formData.month)
-  Cookies.set("month",formData.month)
 };
 useEffect(() =>
 {
@@ -153,6 +148,7 @@ useEffect(() =>
       .then((data) =>  setState(data));
 },[])
 const handleSubmit = (e) => {
+  
   e.preventDefault() 
    if(!formData)
    {
@@ -194,7 +190,9 @@ const handleSubmit = (e) => {
           <Button color="info" onClick={handleShow}> 
                 Add Item
               </Button>&emsp;&emsp;&emsp;
-              <Button color="info" onClick={handleShow1}> 
+              <Button color="info" onClick={() =>{
+                handleShow1()
+              }}> 
                 Add Other Item
               </Button>&emsp;&emsp;&emsp;
               <Button color="info" onClick={handleShow}> 
@@ -235,9 +233,9 @@ const handleSubmit = (e) => {
                 <td id={value._id}>{value.commontotalitems}</td>
                 <td id={value._id}>{value.commonitemno}</td>
                 <td id={value._id}>{value.salesselectcompany}</td>
-                <td id={value._id}>{value.salesemailreceipttime}</td>
-                <td id={value._id}>{value.salesclientemail}</td>
-                <td id={value._id}>{value.commonitemdescription}</td>
+                <td id={value._id}>{value.emailtime}</td>
+                <td id={value._id}>{value.clientemail}</td>
+                <td id={value._id}>{value.item}</td>
                 
                 <td id={value._id}><Button color="danger">Remove</Button></td>
               </tr>
@@ -250,9 +248,9 @@ const handleSubmit = (e) => {
                 <td><Form.Control name="commontotalitems" type="text" onChange={handleChange}/></td>
                 <td><Form.Control name="commonitemno" type="text" onChange={handleChange}/></td>
                 <td><Form.Control name="salesselectcompany" type="text" onChange={handleChange}/></td>
-                <td><Form.Control name="salesemailreceipttime" type="time" defaultValue={formData.emailtime} onChange={handleChange}/></td>
-                <td><Form.Control name="salesclientemail" defaultValue={Cookies.get('clientemail')} type="text" onChange={handleChange}/></td>
-                <td><Form.Control name="commonitemdescription" defaultValue={formData.itemdescription} type="text" onChange={handleChange}/></td>
+                <td><Form.Control name="salesemailreceipttime" type="time" onChange={handleChange} value={formData.emailtime} disabled/></td>
+                <td><Form.Control name="salesclientemail" defaultValue="" onChange={handleChange} value={formData.clientemail} type="text" disabled/></td>
+                <td><Form.Control name="commonitemdescription"  onChange={handleChange} value={formData.itemdescription} type="text" disabled/></td>
               </tr>
               </tbody>
              </Table>
@@ -343,34 +341,26 @@ const handleSubmit = (e) => {
             <Form>
               <Form.Group controlId="exampleForm.ControlInput10" style={{width:"100%"}}>
                 <Form.Label>Email Client email</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={Cookies.get('clientemail')}/>
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput11" style={{width:"100%"}}>
-                <Form.Label>Client rfq No.</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={Cookies.get('clientrfq')}/>
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput12" style={{width:"100%"}}>
-                <Form.Label>Month</Form.Label>
-                <Form.Control plaintext readOnly defaultValue={Cookies.get("month")}/>
+                <Form.Control plaintext readOnly defaultValue={formData.clientemail}/>
               </Form.Group>
               <h4>Enter Details Below:</h4>
-              <Form.Group controlId="exampleForm.ControlInput13" style={{width:"100%"}}>
+              <Form.Group controlId="exampleForm.ControlInput3" style={{width:"100%"}}>
                 <Form.Label>Item Description</Form.Label>
                 <Form.Control type="text"  name="itemdescription" onChange={handleChange}/>
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput14" style={{width:"100%"}}>
+              <Form.Group controlId="exampleForm.ControlInput4" style={{width:"100%"}}>
                 <Form.Label>Model</Form.Label>
                 <Form.Control type="text"  name="model" onChange={handleChange}/>
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput15" style={{width:"100%"}}>
+              <Form.Group controlId="exampleForm.ControlInput5" style={{width:"100%"}}>
                 <Form.Label>Brand</Form.Label>
                 <Form.Control type="text"  name="brand" onChange={handleChange}/>
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlInput16" style={{width:"100%"}}>
+              <Form.Group controlId="exampleForm.ControlInput6" style={{width:"100%"}}>
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control type="text"  name="quantity" onChange={handleChange}/>
               </Form.Group>
-              <Form.Group controlId="exampleForm.ControlSelect2" style={{width:"100%"}}>
+              <Form.Group controlId="exampleForm.ControlSelect1" style={{width:"100%"}}>
                 <Form.Label>Unit</Form.Label>
                 <Form.Control as="select" name="unit" onChange={handleChange}>
                   <option>Nos.</option>
@@ -448,10 +438,10 @@ const handleSubmit = (e) => {
           {users.map(value => (
             <tbody>
               <tr id={value._id}>
-                <td id={value._id}>{value.commonspecsmodelno}</td>
-                <td id={value._id}>{value.commonbrand}</td>
-                <td id={value._id}>{value.commonqtyrequired}</td>
-                <td id={value._id}>{value.salesclientrfqno}</td>
+                <td id={value._id}>{value.model}</td>
+                <td id={value._id}>{value.brand}</td>
+                <td id={value._id}>{value.quantity}</td>
+                <td id={value._id}>{value.client}</td>
                 <td id={value._id}>{value.salesemailstatus}</td>
                 <td id={value._id}>{value.salesquoteregretdate}</td>
                 <td id={value._id}>{value.salesenquiryregret}</td>
@@ -463,10 +453,10 @@ const handleSubmit = (e) => {
             ))}
             <tbody>
             <tr>
-                <td><Form.Control type="text"  name="commonspecsmodelno" defaultValue={formData.model}  onChange={handleChange}/></td>
-                <td><Form.Control type="text"  name="commonbrand" defaultValue={formData.brand}  onChange={handleChange}/></td>
-                <td><Form.Control type="text"  name="commonqtyrequired" defaultValue={formData.quantity}  onChange={handleChange}/></td>
-                <td><Form.Control type="text" name="salesclientrfqno" defaultValue={formData.clientrfq}  onChange={handleChange}/></td>
+                <td><Form.Control type="text"  name="commonspecsmodelno" value={formData.model}  onChange={handleChange} disabled/></td>
+                <td><Form.Control type="text"  name="commonbrand" value={formData.brand}  onChange={handleChange} disabled/></td>
+                <td><Form.Control type="text"  name="commonqtyrequired" value={formData.quantity}  onChange={handleChange} disabled/></td>
+                <td><Form.Control type="text" name="salesclientrfqno" value={formData.clientrfq}  onChange={handleChange} disabled/></td>
                 <td><Form.Control type="text"  name="salesemailstatus"  onChange={handleChange}/></td>
                 <td><Form.Control type="date"  name="salesquoteregretdate"  onChange={handleChange}/></td>
                 <td><Form.Control type="text"  name="salesenquiryregret"  onChange={handleChange}/></td>

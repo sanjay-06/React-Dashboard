@@ -2,7 +2,7 @@
   "homepage": "http://sanjay-06.github.io/React-Dashboard",
   "name": "material-dashboard-react",
   "version": "1.9.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
