@@ -1,3 +1,3 @@
 # React-Dashboard
 
-!github[dashboard.PNG]
+!github[dashboard.png]
